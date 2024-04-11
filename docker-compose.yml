@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  zoo_postgres_db:
+    image: postgres:16
+    container_name: zoo_postgres_db
+    environment:
+      - POSTGRES_PASSWORD=s3cr3t
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - ./init_db.sql:/init_db.sql
+      - ./sample_db_data.sql:/sample_db_data.sql
+      - zoo_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  zoo_data:
+    name: zoo_data
