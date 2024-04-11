@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import java.io.Serializable;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 @Entity
 public class MapFeature implements Serializable {
@@ -31,11 +32,11 @@ public class MapFeature implements Serializable {
 
 //    @GeneratedValue
     @Column(insertable = false, updatable = false)
-    private  java.sql.Timestamp createTimestamp;
+    private  java.sql.Timestamp createdAt;
 
 //    @GeneratedValue
     @Column(insertable = false, updatable = false)
-    private  java.sql.Timestamp modifyTimestamp;
+    private  java.sql.Timestamp updatedAt;
 
     public Long getId() {
         return id;
@@ -64,22 +65,6 @@ public class MapFeature implements Serializable {
     }
 
 
-    public java.sql.Timestamp getCreateTimestamp() {
-        return createTimestamp;
-    }
-
-    public void setCreateTimestamp(java.sql.Timestamp createTimestamp) {
-        this.createTimestamp = createTimestamp;
-    }
-
-
-    public java.sql.Timestamp getModifyTimestamp() {
-        return modifyTimestamp;
-    }
-
-    public void setModifyTimestamp(java.sql.Timestamp modifyTimestamp) {
-        this.modifyTimestamp = modifyTimestamp;
-    }
 
     public BigDecimal getLatitude() {
         return latitude;
@@ -113,4 +98,11 @@ public class MapFeature implements Serializable {
         this.category = category;
     }
 
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
 }
