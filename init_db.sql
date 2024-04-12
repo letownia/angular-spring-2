@@ -33,6 +33,10 @@ CREATE TRIGGER map_feature_update_timestamps BEFORE UPDATE
     ON map_feature FOR EACH ROW EXECUTE PROCEDURE
     update_timestamp();
 
+ALTER TABLE map_feature
+  ADD CONSTRAINT check_category CHECK (category IN ('MYTHICAL', 'FISH', 'BIRDS', 'AMPHIBIANS', 'MAMMALS', 'REPTILES', 'INSECTS', 'ARACHNIDS'));
+
+
 --
 --CREATE TABLE temperature (
 --  id SERIAL PRIMARY KEY,
